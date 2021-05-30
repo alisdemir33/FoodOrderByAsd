@@ -5,8 +5,16 @@ import React from 'react';
 
 const CartItem = (props) => {
   const ctx = useContext(CartContext);
-
   const price = `$${props.price.toFixed(2)}`;
+
+  const incAmountHandler = (event) =>{
+      event.preventDefault();
+      ctx.onIncreaseAmount(props.name);
+  }
+  const decAmountHandler = (event) =>{
+    event.preventDefault();
+    ctx.onDecreaseAmount(props.name);
+}
 
   return (
     <li className={classes['cart-item']}>
@@ -18,8 +26,8 @@ const CartItem = (props) => {
         </div>
       </div>
       <div className={classes.actions}>
-        <button onClick={ctx.onRemoveFromCart}>−</button>
-        <button onClick={ctx.onAddToCart}>+</button>
+        <button onClick={decAmountHandler}>−</button>
+        <button onClick={incAmountHandler}>+</button>
       </div>
     </li>
   );

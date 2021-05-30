@@ -32,24 +32,41 @@ export const CartContextProvider = (props) => {
     setCurrentCartList(list);
   }, []);
 
-  const onAddToCartHandler = () => {   
-   // setIsLoggedIn(false);
+  const onAddToCartHandler = (item) => {   
+  let newList= [...currentCartList,item];
+  setCurrentCartList(newList);
   };
 
-  const onIncAmountHandler = () => {  
-    // setIsLoggedIn(true);
+  const onIncAmountHandler = (nameParam) => { 
+
+  let newList =  currentCartList.map( (item) =>{
+     if(item['name'] === nameParam){
+        return {...item, amount: item['amount'] +1}
+      }    
+      else{
+        return item;
+      }
+    });
+    setCurrentCartList(newList);   
   };
 
-
-  const onDecAmountHandler = () => {  
-    // setIsLoggedIn(true);
+  const onDecAmountHandler = (nameParam) => {  
+    let newList =  currentCartList.map( (item) =>{
+        if(item['name'] === nameParam){
+           return {...item, amount: item['amount'] -1}
+         }    
+         else{
+           return item;
+         }
+       });   
+       setCurrentCartList(newList);
   };
 
   return (
     <CartContext.Provider
       value={{
          cartList:currentCartList ,
-        onAddToCart: onIncAmountHandler,
+        onAddToCart: onAddToCartHandler,
         onIncreaseAmount:onIncAmountHandler,
         onDecreaseAmount: onDecAmountHandler,
       }}
