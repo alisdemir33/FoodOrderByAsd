@@ -15,8 +15,7 @@ const MealItem = (props) => {
             </MealItemSummary>
             <MealItemForm>
             </MealItemForm>       
-    </li>)
-   
+    </li>)   
 }
 
 export default MealItem

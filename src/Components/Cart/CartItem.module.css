@@ -12,6 +12,10 @@
   color: #363636;
 }
 
+.left-group {
+  padding-left: 0.5rem; 
+}
+
 .summary {
   width: 10rem;
   display: flex;

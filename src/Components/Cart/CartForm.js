@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import CartItem from './CartItem'
+import CartContext from '../Store/CartStore'
 
-const CartList =
+/* const CartList =
     [
         {
             name: 'snitze',
@@ -13,10 +14,14 @@ const CartList =
             price: 1.4,
             amount: 3
         }
-    ]
+    ] */
+
 
 const CartForm = (props) => {
-    return CartList.map( (listItem) =>{
+
+    const ctx = useContext(CartContext);
+
+    return ctx.cartList.map( (listItem) =>{
         return <CartItem name={listItem.name} amount ={listItem.amount} price={listItem.price}></CartItem>
     })
 

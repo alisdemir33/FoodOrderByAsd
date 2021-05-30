@@ -1,11 +1,16 @@
+import {useContext} from 'react';
 import classes from './CartItem.module.css';
+import CartContext from '../Store/CartStore'
+import React from 'react';
 
 const CartItem = (props) => {
+  const ctx = useContext(CartContext);
+
   const price = `$${props.price.toFixed(2)}`;
 
   return (
     <li className={classes['cart-item']}>
-      <div>
+      <div className={classes['left-group']}>
         <h2>{props.name}</h2>
         <div className={classes.summary}>
           <span className={classes.price}>{price}</span>
@@ -13,8 +18,8 @@ const CartItem = (props) => {
         </div>
       </div>
       <div className={classes.actions}>
-        <button onClick={props.onRemove}>−</button>
-        <button onClick={props.onAdd}>+</button>
+        <button onClick={ctx.onRemoveFromCart}>−</button>
+        <button onClick={ctx.onAddToCart}>+</button>
       </div>
     </li>
   );

@@ -11,8 +11,8 @@
 
 .error_modal h2 {
   margin: 0;
-  padding: 1rem;
-  background: #ff2058;
+  padding-left: 0.5rem;
+  background: #d3c4c8;
   color: white;
   border-radius: 7px 7px 0 0;
 }

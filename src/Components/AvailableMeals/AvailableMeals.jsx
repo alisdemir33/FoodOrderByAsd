@@ -7,20 +7,20 @@ import MealItem from './MealItem'
 const AvailableMeals = () => {
 
     return (
-<ul>
-        <Card className= {classes['meals']}>
-            {DUMMY_MEALS.map((currMeal) => {
-                return (
-                    <MealItem
-                        key={currMeal.id}
-                        name={currMeal.name}
-                        description={currMeal.description}
-                        price={currMeal.price}>
-                    </MealItem>
-                )
-            })
-            }
-        </Card>
+        <ul>
+            <Card className={classes['meals']}>
+                {DUMMY_MEALS.map((currMeal) => {
+                    return (
+                        <MealItem
+                            key={currMeal.id}
+                            name={currMeal.name}
+                            description={currMeal.description}
+                            price={currMeal.price}>
+                        </MealItem>
+                    )
+                })
+                }
+            </Card>
         </ul>
     )
 }
